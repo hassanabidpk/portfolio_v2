@@ -1,0 +1,77 @@
+{% extends 'resume/base.html' %}
+{% load staticfiles %}
+{% load django_markdown %}
+{% load humanize %}
+{% block title %}
+<title>Hassan Abid - Blog</title>
+{% endblock %}
+{% block fbtags %}
+<!-- Fb Tags-->
+  <meta property="og:type" content="article" />
+  <meta property="og:locale" content="en_US" />
+  <meta property="og:title" content="Hassan Abid" />
+  <meta property="article:author" content="https://www.facebook.com/hassanabidpk89" />
+  <meta property="og:description" content="I'm Hassan Abid a passionate Software Engineer with several years of experience in Android,iOS and web programming. I'm based in Seoul and currently working for NexStreaming Corp.
+                    In my free time, I help under-represented people to learn programming. My favorite quote is Simplicity is the ultimate sophistication. When I am not coding, I go out for hiking, running or cycling." />
+  <meta property="og:image"content="{% static 'resume/images/hassan_gds.jpg' %}" />
+  <meta property="og:url" content="http://hassanabid.com" />
+{% endblock %}
+{% block blog-active %} is-active {% endblock %}
+{% block content %}
+<div class="mdl-grid portfolio-max-width">
+  {% if posts %}
+  {% for post in posts %}
+  {% if forloop.first %}
+    <div class="mdl-grid mdl-cell mdl-cell--12-col mdl-cell--4-col-tablet mdl-card mdl-shadow--4dp">
+      {% if post.thumbnail %}
+        <div class="mdl-card__media mdl-cell mdl-cell--12-col-tablet">
+            <a href="{% url 'blog:post_single' post.slug %}"><img class="article-image" src="{{ post.thumbnail.url }}" border="0" alt=""></a>
+        </div>
+        {% endif %}
+        <div class="mdl-cell mdl-cell--8-col">
+            <h2 class="mdl-card__title-text">{{ post.title }}</h2>
+            <div class="mdl-card__supporting-text padding-top">
+                <span>Posted {{ post.createdAt|naturaltime }}</span>
+                <div id="tt1" class=" icon material-icons portfolio-share-btn">share</div>
+                <div class="mdl-tooltip" for="tt1">
+                    Share via social media
+                </div>
+            </div>
+            <div class="mdl-card__supporting-text no-left-padding">
+                <p>{{ post.summary }}</p>
+                <span>Category:
+                {% for cat in post.category.all %}
+                  <a href="{% url 'blog:posts_cat' cat.slug %}">{{ cat.title }}</a>
+                {% endfor %}
+                </span>
+            </div>
+        </div>
+    </div>
+    {% else %}
+    <div class="mdl-cell mdl-cell--6-col mdl-cell--4-col-tablet mdl-card mdl-shadow--4dp">
+        <div class="mdl-card__title">
+            <a href="{% url 'blog:post_single' post.slug %}"><h2 class="mdl-card__title-text">{{ post.title }}</h2></a>
+        </div>
+        {% if post.thumbnail %}
+        <div class="mdl-card__media">
+            <a href="{% url 'blog:post_single' post.slug %}"> <img class="article-image" src="{{ post.thumbnail.url }}" border="0" alt=""></a>
+        </div>
+        {% endif %}
+        <div class="mdl-card__supporting-text no-bottom-padding">
+            <span>{{ post.createdAt|naturaltime }}</span>
+            <div id="tt2" class=" icon material-icons portfolio-share-btn">share</div>
+            <div class="mdl-tooltip" for="tt2">
+                Share via social media
+            </div>
+        </div>
+        <div class="mdl-card__supporting-text">
+            <p>{{ post.summary }}</p>
+        </div>
+    </div>
+    {% endif %}
+    {% endfor %}
+    {% else %}
+    <h3>No posts added yet</h3>
+    {% endif %}
+</div>
+{% endblock %}

@@ -1,0 +1,57 @@
+{% extends 'resume/base.html' %}
+{% load staticfiles %}
+{% load django_markdown %}
+{% block title %}
+<title>Hassan Abid</title>
+{% endblock %}
+{% block fbtags %}
+<!-- Fb Tags-->
+  <meta property="og:type" content="article" />
+  <meta property="og:locale" content="en_US" />
+  <meta property="og:title" content="Hassan Abid" />
+  <meta property="article:author" content="https://www.facebook.com/hassanabidpk89" />
+  <meta property="og:description" content="I'm Hassan Abid a passionate Software Engineer with several years of experience in Android,iOS and web programming. I'm based in Seoul and currently working for NexStreaming Corp.
+                    In my free time, I help under-represented people to learn programming. My favorite quote is Simplicity is the ultimate sophistication. When I am not coding, I go out for hiking, running or cycling." />
+  <meta property="og:image"content="{% static 'resume/images/hassan_gds.jpg' %}" />
+  <meta property="og:url" content="http://hassanabid.com" />
+{% endblock %}
+{% block about-active %} is-active {% endblock %}
+{% block content %}
+<div class="mdl-grid portfolio-max-width">
+
+    <div class="mdl-cell mdl-cell--12-col mdl-card mdl-shadow--4dp">
+        <div class="mdl-card__title">
+            <h2 class="mdl-card__title-text">About</h2>
+        </div>
+        <div class="mdl-card__media">
+            <img class="article-image" src="{% static 'resume/images/about-header.jpg' %}" border="0" alt="">
+        </div>
+
+        <div class="mdl-grid portfolio-copy">
+            <h3 class="mdl-cell mdl-cell--12-col mdl-typography--headline">Introduction</h3>
+            <div class="mdl-cell mdl-cell--12-col mdl-card__supporting-text no-padding ">
+                <p>
+                  I'm Hassan Abid a passionate Software Engineer with several years of experience in Android,iOS and web programming. I'm based in Seoul and currently working for NexStreaming Corp.
+                  In my free time, I help under-represented people to learn programming. My favorite quote is "Simplicity is the ultimate sophistication". When I am not coding, I go out for hiking, running or cycling.
+                </p>
+            </div>
+
+
+
+
+            <h3 class="mdl-cell mdl-cell--12-col mdl-typography--headline">Summary</h3>
+
+            <div class="mdl-cell mdl-cell--12-col mdl-card__supporting-text no-padding ">
+                <p>
+                  I am a meticulous full-stack developer who undertakes assignments with utmost responsibility, meet deadlines, and delivers quality work. I possess practical and up-to-date knowedge about android and iOS SDKs. I apply analytical skills in solviing day-to-day problems and challenges. I operate with eagrness and strong sense of urgency. I expertise in Android(3+), iOS(1.5+) and web(2+) along side with strong knowledge of server backends. I posses ability to develop a full-fledge mobile and web app.
+
+                  I have quest for learning. I have completed several online courses and certifications including Android Developers nanodegree(Udacity), iOS Developement with Swift(Udacity) and Python(MITx).
+
+                  I have strong experience building and maintaining SDKs. At my current working place(NexStreaming), I maintain Swift demo app for the NexPlayer SDK and from time-to-time fix bugs in NexPlayer iOS SDK.
+                  To me learning and exploring new technologies and opportunities have no end. I am looking for a more felxible role where I can apply all my skills related to mobile and web developement for launching a complete product off-ground.
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

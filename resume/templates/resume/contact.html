@@ -1,0 +1,57 @@
+{% extends 'resume/base.html' %}
+{% load staticfiles %}
+{% load django_markdown %}
+{% block title %}
+<title>Hassan Abid</title>
+{% endblock %}
+{% block fbtags %}
+<!-- Fb Tags-->
+  <meta property="og:type" content="article" />
+  <meta property="og:locale" content="en_US" />
+  <meta property="og:title" content="Hassan Abid" />
+  <meta property="article:author" content="https://www.facebook.com/hassanabidpk89" />
+  <meta property="og:description" content="I'm Hassan Abid a passionate Software Engineer with several years of experience in Android,iOS and web programming. I'm based in Seoul and currently working for NexStreaming Corp.
+                    In my free time, I help under-represented people to learn programming. My favorite quote is Simplicity is the ultimate sophistication. When I am not coding, I go out for hiking, running or cycling." />
+  <meta property="og:image"content="{% static 'resume/images/hassan_gds.jpg' %}" />
+  <meta property="og:url" content="http://hassanabid.com" />
+{% endblock %}
+{% block contact-active %}
+is-active
+ {% endblock %}
+{% block content %}
+<div class="mdl-grid portfolio-max-width portfolio-contact">
+    <div class="mdl-cell mdl-cell--12-col mdl-card mdl-shadow--4dp">
+        <div class="mdl-card__title">
+            <h2 class="mdl-card__title-text">Contact</h2>
+        </div>
+        <div class="mdl-card__media">
+            <img class="article-image" src="{% static 'resume/images/contact-image.jpg' %}" border="0" alt="">
+        </div>
+        <div class="mdl-card__supporting-text">
+            <p>
+                If you would like me to review your code, or need help with anything? Don't hestitate to shoot me a message!
+            </p>
+            <form action="#" class="">
+                <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                    <input class="mdl-textfield__input" pattern="[A-Z,a-z, ]*" type="text" id="Name">
+                    <label class="mdl-textfield__label" for="Name">Name...</label>
+                    <span class="mdl-textfield__error">Letters and spaces only</span>
+                </div>
+                <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                    <input class="mdl-textfield__input" type="text" id="Email">
+                    <label class="mdl-textfield__label" for="Email">Email...</label>
+                </div>
+                <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                    <textarea class="mdl-textfield__input" type="text" rows="5" id="note"></textarea>
+                    <label class="mdl-textfield__label" for="note">Enter note</label>
+                </div>
+                <p>
+                    <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" type="submit">
+                        Submit
+                    </button>
+                </p>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}
