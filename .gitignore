@@ -3,5 +3,4 @@ __pycache__
 db.sqlite3
 pvenv
 uploads/*
-static
 staticfiles
