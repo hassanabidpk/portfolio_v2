@@ -3,7 +3,7 @@ from .models import Category,Post
 
 
 def index(request):
-    posts = Post.objects.order_by("createdAt")
+    posts = Post.objects.order_by("-createdAt")
     context = {"posts": posts}
     return render(request,'blog/blog.html',context)
 

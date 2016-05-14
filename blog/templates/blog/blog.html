@@ -45,12 +45,17 @@
                 {% endfor %}
                 </span>
             </div>
+            <div class="mdl-card__actions mdl-card--border">
+              <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect mdl-button--accent" href="{% url 'blog:post_single' post.slug %}">
+                Read More
+              </a>
+            </div>
         </div>
     </div>
     {% else %}
     <div class="mdl-cell mdl-cell--6-col mdl-cell--4-col-tablet mdl-card mdl-shadow--4dp">
         <div class="mdl-card__title">
-            <a href="{% url 'blog:post_single' post.slug %}"><h2 class="mdl-card__title-text">{{ post.title }}</h2></a>
+            <h2 class="mdl-card__title-text">{{ post.title }}</h2>
         </div>
         {% if post.thumbnail %}
         <div class="mdl-card__media">
@@ -66,6 +71,11 @@
         </div>
         <div class="mdl-card__supporting-text">
             <p>{{ post.summary }}</p>
+        </div>
+        <div class="mdl-card__actions mdl-card--border">
+          <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect mdl-button--accent" href="{% url 'blog:post_single' post.slug %}">
+            Read More
+          </a>
         </div>
     </div>
     {% endif %}

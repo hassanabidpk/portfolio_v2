@@ -13,11 +13,11 @@
   <meta property="article:author" content="https://www.facebook.com/hassanabidpk89" />
   <meta property="og:description" content="{{ post.summary }}" />
   {% if post.photo %}
-  <meta property="og:image"content="http://hassanabid.com/media{{ post.photo.url }}" />
+  <meta property="og:image"content="http://www.hassanabid.com/media{{ post.photo.url }}" />
   {% else %}
   <meta property="og:image"content="{% static 'resume/images/hassan_gds.jpg' %}" />
   {% endif %}
-  <meta property="og:url" content="http://hassanabid.com" />
+  <meta property="og:url" content="http://www.hassanabid.com" />
 {% endblock %}
 {% block content %}
 <div class="mdl-grid portfolio-max-width">
@@ -28,6 +28,7 @@
         </div>
         {% endif %}
         <div class="mdl-card__supporting-text">
+          Category: 
             {% for cat in post.category.all %}
             <a href="{% url 'blog:posts_cat' cat.slug %}">{{ cat.title }}</a>
             {% endfor %}
