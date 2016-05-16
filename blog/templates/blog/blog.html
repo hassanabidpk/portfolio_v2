@@ -51,7 +51,7 @@
             <h2 class="mdl-card__title-text">{{ post.title }}</h2>
             <div class="mdl-card__supporting-text padding-top">
                 <span>Posted {{ post.createdAt|naturaltime }}</span>
-                <div id="tt1" class=" icon material-icons portfolio-share-btn">share</div>
+                <a href="" onclick="fbshare('{{ post.slug }}',{% if post.photo %}'{{ post.photo.url }}' {% else %} ''{% endif %},'{{ post.title }}')"><div id="tt2" class=" icon material-icons portfolio-share-btn">share</div></a>
                 <div class="mdl-tooltip" for="tt1">
                     Share via social media
                 </div>
@@ -83,7 +83,7 @@
         {% endif %}
         <div class="mdl-card__supporting-text no-bottom-padding">
             <span>{{ post.createdAt|naturaltime }}</span>
-            <a href="" onclick="fbshare('{{ post.slug }}','{{ post.photo.url }}','{{ post.title }}')"><div id="tt2" class=" icon material-icons portfolio-share-btn">share</div></a>
+            <a href="" onclick="fbshare('{{ post.slug }}',{% if post.photo %}'{{ post.photo.url }}' {% else %} ''{% endif %},'{{ post.title }}')"><div id="tt2" class=" icon material-icons portfolio-share-btn">share</div></a>
             <div class="mdl-tooltip" for="tt2">
                 Share via social media
             </div>
