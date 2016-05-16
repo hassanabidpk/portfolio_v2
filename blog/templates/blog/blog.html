@@ -17,6 +17,25 @@
   <meta property="og:url" content="http://hassanabid.com" />
 {% endblock %}
 {% block blog-active %} is-active {% endblock %}
+{% block fbjs %}
+<script>
+  window.fbAsyncInit = function() {
+    FB.init({
+      appId      : '722253317920977',
+      xfbml      : true,
+      version    : 'v2.3'
+    });
+  };
+
+  (function(d, s, id){
+     var js, fjs = d.getElementsByTagName(s)[0];
+     if (d.getElementById(id)) {return;}
+     js = d.createElement(s); js.id = id;
+     js.src = "//connect.facebook.net/en_US/sdk.js";
+     fjs.parentNode.insertBefore(js, fjs);
+   }(document, 'script', 'facebook-jssdk'));
+</script>
+{% endblock %}
 {% block content %}
 <div class="mdl-grid portfolio-max-width">
   {% if posts %}
@@ -64,7 +83,7 @@
         {% endif %}
         <div class="mdl-card__supporting-text no-bottom-padding">
             <span>{{ post.createdAt|naturaltime }}</span>
-            <div id="tt2" class=" icon material-icons portfolio-share-btn">share</div>
+            <a href="" onclick="fbshare('{{ post.slug }}','{{ post.photo.url }}','{{ post.title }}')"><div id="tt2" class=" icon material-icons portfolio-share-btn">share</div></a>
             <div class="mdl-tooltip" for="tt2">
                 Share via social media
             </div>
@@ -84,4 +103,16 @@
     <h3>No posts added yet</h3>
     {% endif %}
 </div>
+{% endblock %}
+{% block fbshare %}
+<script>
+function fbshare(slug,photo,title){
+    FB.ui({
+      method: 'share',
+      href: 'http://www.hassanabid.com/blog/'.concat(slug),
+      picture: 'http://hassanabid.com'.concat(photo),
+      caption: title,
+    }, function(response){});
+}
+</script>
 {% endblock %}

@@ -19,6 +19,25 @@
   {% endif %}
   <meta property="og:url" content="http://www.hassanabid.com" />
 {% endblock %}
+{% block fbjs %}
+<script>
+  window.fbAsyncInit = function() {
+    FB.init({
+      appId      : '722253317920977',
+      xfbml      : true,
+      version    : 'v2.3'
+    });
+  };
+
+  (function(d, s, id){
+     var js, fjs = d.getElementsByTagName(s)[0];
+     if (d.getElementById(id)) {return;}
+     js = d.createElement(s); js.id = id;
+     js.src = "//connect.facebook.net/en_US/sdk.js";
+     fjs.parentNode.insertBefore(js, fjs);
+   }(document, 'script', 'facebook-jssdk'));
+</script>
+{% endblock %}
 {% block content %}
 <div class="mdl-grid portfolio-max-width">
     <div class="mdl-cell mdl-cell--12-col mdl-card mdl-shadow--4dp">
@@ -28,10 +47,11 @@
         </div>
         {% endif %}
         <div class="mdl-card__supporting-text">
-          Category: 
+          Category:
             {% for cat in post.category.all %}
             <a href="{% url 'blog:posts_cat' cat.slug %}">{{ cat.title }}</a>
             {% endfor %}
+            <a href="" onclick="fbshare('{{ post.slug }}',{% if post.photo %}'{{ post.photo.url }}' {% else %} ''{% endif %},'{{ post.title }}')"><div id="tt2" class=" icon material-icons portfolio-share-btn">share</div></a>
         </div>
             <h3 class="mdl-cell mdl-cell--12-col-desktop mdl-cell--4-col-phone mdl-typography--headline">{{ post.title }}</h3>
             <div class="mdl-cell mdl-cell--12-col mdl-card__supporting-text no-padding">
@@ -44,4 +64,17 @@
         </div>
     </div>
 </div>
+{% endblock %}
+{% block fbshare %}
+<script>
+function fbshare(){
+    FB.ui({
+      method: 'share',
+      href: 'http://www.hassanabid.com/blog/{{ post.slug }}',
+      {% if post.photo %}
+      picture: 'http://hassanabid.com{{ post.photo.url }}', {% endif %}
+      caption: '{{ post.title }}',
+    }, function(response){});
+}
+</script>
 {% endblock %}

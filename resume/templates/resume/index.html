@@ -33,7 +33,10 @@
           {{ project.description|markdown }}
           <div class="skill-inline">
           {% for skill in project.skills.all %}
-          <img class="project-skill-logo" src="{{ skill.logo.url }}">
+          <img id='{{ skill.slug }}' class="project-skill-logo" src="{{ skill.logo.url }}">
+          <div class="mdl-tooltip mdl-tooltip--large" for="{{ skill.slug }}">
+            {{ skill.title }}<br>({{ skill.term }})
+          </div>
           {% endfor %}
         </div>
         </div>

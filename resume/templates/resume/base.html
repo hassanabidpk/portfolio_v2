@@ -36,6 +36,8 @@
 </head>
 
 <body>
+  {% block fbjs %}
+  {% endblock %}
     <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
         <header class="mdl-layout__header mdl-layout__header--waterfall portfolio-header">
             <div class="mdl-layout__header-row portfolio-logo-row">
@@ -46,7 +48,7 @@
             </div>
             <div class="mdl-layout__header-row portfolio-navigation-row mdl-layout--large-screen-only">
                 <nav class="mdl-navigation mdl-typography--body-1-force-preferred-font">
-                    <a class="mdl-navigation__link {% block port-active %} {% endblock %}" href="/">Portfolio</a>
+                    <a class="mdl-navigation__link {% block port-active %} {% endblock %}" href="/">Projects</a>
                     <a class="mdl-navigation__link {% block blog-active %} {% endblock %}" href="/blog/">Blog</a>
                     <a class="mdl-navigation__link {% block about-active %} {% endblock %}" href="/about/">About</a>
                     <a class="mdl-navigation__link {% block contact-active %} {% endblock %}" href="/contact/">Contact</a>
@@ -55,7 +57,7 @@
         </header>
         <div class="mdl-layout__drawer mdl-layout--small-screen-only">
             <nav class="mdl-navigation mdl-typography--body-1-force-preferred-font">
-                <a class="mdl-navigation__link is-active" href="/">Portfolio</a>
+                <a class="mdl-navigation__link is-active" href="/">Projects</a>
                 <a class="mdl-navigation__link" href="/blog/">Blog</a>
                 <a class="mdl-navigation__link" href="/about/">About</a>
                 <a class="mdl-navigation__link" href="/contact/">Contact</a>
@@ -66,7 +68,7 @@
               {% endblock %}
             <footer class="mdl-mini-footer">
                 <div class="mdl-mini-footer__left-section">
-                    <div class="mdl-logo">built with Django and Material Design Lite</div>
+                    <div class="mdl-logo">Built with Django and Material Design Lite</div>
                 </div>
                 <div class="mdl-mini-footer__right-section">
                     <ul class="mdl-mini-footer__link-list">
@@ -79,6 +81,8 @@
         </main>
     </div>
     <script src="https://code.getmdl.io/1.1.3/material.min.js"></script>
+    {% block fbshare %}
+    {% endblock %}
 </body>
 
 </html>
