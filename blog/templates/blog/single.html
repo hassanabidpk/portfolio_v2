@@ -9,11 +9,11 @@
 <!-- Fb Tags-->
   <meta property="og:type" content="article" />
   <meta property="og:locale" content="en_US" />
-  <meta property="og:title" content="Hassan Abid" />
+  <meta property="og:title" content="{{ post.title }}" />
   <meta property="article:author" content="https://www.facebook.com/hassanabidpk89" />
   <meta property="og:description" content="{{ post.summary }}" />
   {% if post.photo %}
-  <meta property="og:image"content="http://www.hassanabid.com/media{{ post.photo.url }}" />
+  <meta property="og:image"content="http://www.hassanabid.com/{{ post.photo.url }}" />
   {% else %}
   <meta property="og:image"content="{% static 'resume/images/hassan_gds.jpg' %}" />
   {% endif %}
@@ -74,7 +74,15 @@ function fbshare(){
       {% if post.photo %}
       picture: 'http://hassanabid.com{{ post.photo.url }}', {% endif %}
       caption: '{{ post.title }}',
-    }, function(response){});
+      summary: "{{ post.summary }}",
+
+    }, function(response){
+      if (response && !response.error_message) {
+      console.log('Posting completed.');
+      } else {
+        console.log('Error while posting.');
+      }
+    });
 }
 </script>
 {% endblock %}

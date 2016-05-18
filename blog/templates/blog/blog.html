@@ -51,7 +51,8 @@
             <h2 class="mdl-card__title-text">{{ post.title }}</h2>
             <div class="mdl-card__supporting-text padding-top">
                 <span>Posted {{ post.createdAt|naturaltime }}</span>
-                <a href="" onclick="fbshare('{{ post.slug }}',{% if post.photo %}'{{ post.photo.url }}' {% else %} ''{% endif %},'{{ post.title }}')"><div id="tt2" class=" icon material-icons portfolio-share-btn">share</div></a>
+                <a href="" onclick="fbshare('{{ post.slug }}',{% if post.photo %} '{{ post.photo.url }}' {% else %} '' {% endif %},
+                '{{ post.title }}','{{ post.summary }}')"><div id="tt2" class=" icon material-icons portfolio-share-btn">share</div></a>
                 <div class="mdl-tooltip" for="tt1">
                     Share via social media
                 </div>
@@ -83,7 +84,8 @@
         {% endif %}
         <div class="mdl-card__supporting-text no-bottom-padding">
             <span>{{ post.createdAt|naturaltime }}</span>
-            <a href="" onclick="fbshare('{{ post.slug }}',{% if post.photo %}'{{ post.photo.url }}' {% else %} ''{% endif %},'{{ post.title }}')"><div id="tt2" class=" icon material-icons portfolio-share-btn">share</div></a>
+            <a href="" onclick="fbshare('{{ post.slug }}',{% if post.photo %}'{{ post.photo.url }}' {% else %} '' {% endif %},
+            '{{ post.title }}','{{ post.summary }}')"><div id="tt2" class=" icon material-icons portfolio-share-btn">share</div></a>
             <div class="mdl-tooltip" for="tt2">
                 Share via social media
             </div>
@@ -107,12 +109,21 @@
 {% block fbshare %}
 <script>
 function fbshare(slug,photo,title){
+  var blogUrl = 'http://www.hassanabid.com/blog/';
+  var baseUrl = 'http://www.hassanabid.com';
     FB.ui({
       method: 'share',
-      href: 'http://www.hassanabid.com/blog/'.concat(slug),
-      picture: 'http://hassanabid.com'.concat(photo),
+      href: blogUrl.concat(slug),
+      picture: baseUrl.concat(photo),
       caption: title,
-    }, function(response){});
+      summary: summary,
+    }, function(response){
+      if (response && !response.error_message) {
+      console.log('Posting completed.');
+      } else {
+        console.log('Error while posting.');
+      }
+    });
 }
 </script>
 {% endblock %}
