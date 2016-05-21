@@ -3,17 +3,19 @@
 {% load django_markdown %}
 {% load humanize %}
 {% block title %}
-<title>"{{ post.title }}"</title>
+<title>{{ post.title }}</title>
 {% endblock %}
 {% block fbtags %}
 <!-- Fb Tags-->
+<meta name="description" content="{{ post.summary }}">
   <meta property="og:type" content="article" />
   <meta property="og:locale" content="en_US" />
   <meta property="og:title" content="{{ post.title }}" />
+  <meta property="fb:app_id" content="722253317920977" /> 
   <meta property="article:author" content="https://www.facebook.com/hassanabidpk89" />
   <meta property="og:description" content="{{ post.summary }}" />
   {% if post.photo %}
-  <meta property="og:image"content="http://www.hassanabid.com/{{ post.photo.url }}" />
+  <meta property="og:image"content="http://www.hassanabid.com{{ post.photo.url }}" />
   {% else %}
   <meta property="og:image"content="http://www.hassanabid.com/static/resume/images/hassan_gds.jpg" />
   {% endif %}
