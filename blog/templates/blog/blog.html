@@ -7,14 +7,18 @@
 {% endblock %}
 {% block fbtags %}
 <!-- Fb Tags-->
+<meta name="description" content="Hassan is a passionate Software Engineer with several years of experience in
+Android,iOS and Web development. He is currently based in Seoul.When he’s not coding, he can be found hiking, running or
+cycling with his smart watch to record all his outdoor activities.">
   <meta property="og:type" content="article" />
   <meta property="og:locale" content="en_US" />
   <meta property="og:title" content="Hassan Abid" />
   <meta property="article:author" content="https://www.facebook.com/hassanabidpk89" />
-  <meta property="og:description" content="I'm Hassan Abid a passionate Software Engineer with several years of experience in Android,iOS and web programming. I'm based in Seoul and currently working for NexStreaming Corp.
-                    In my free time, I help under-represented people to learn programming. My favorite quote is Simplicity is the ultimate sophistication. When I am not coding, I go out for hiking, running or cycling." />
-  <meta property="og:image"content="{% static 'resume/images/hassan_gds.jpg' %}" />
-  <meta property="og:url" content="http://hassanabid.com" />
+  <meta property="og:description" content="Hassan is a passionate Software Engineer with several years of experience in
+  Android,iOS and Web development. He is currently based in Seoul.When he’s not coding, he can be found hiking, running or
+  cycling with his smart watch to record all his outdoor activities." />
+  <meta property="og:image"content="http://www.hassanabid.com/static/resume/images/hassan_gds.jpg" />
+  <meta property="og:url" content="http://hassanabid.com/blog" />
 {% endblock %}
 {% block blog-active %} is-active {% endblock %}
 {% block fbjs %}
@@ -42,12 +46,12 @@
   {% for post in posts %}
   {% if forloop.first %}
     <div class="mdl-grid mdl-cell mdl-cell--12-col mdl-cell--4-col-tablet mdl-card mdl-shadow--4dp">
-      {% if post.thumbnail %}
+      {% if post.photo %}
         <div class="mdl-card__media mdl-cell mdl-cell--12-col-tablet">
-            <a href="{% url 'blog:post_single' post.slug %}"><img class="article-image" src="{{ post.thumbnail.url }}" border="0" alt=""></a>
+            <a href="{% url 'blog:post_single' post.slug %}"><img class="article-image-first" src="{{ post.photo.url }}" border="0" alt=""></a>
         </div>
         {% endif %}
-        <div class="mdl-cell mdl-cell--8-col">
+        <div class="mdl-cell mdl-cell--12-col">
             <h2 class="mdl-card__title-text">{{ post.title }}</h2>
             <div class="mdl-card__supporting-text padding-top">
                 <span>Posted {{ post.createdAt|naturaltime }}</span>

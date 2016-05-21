@@ -113,6 +113,11 @@ img.article-image {
   height: auto;
 }
 
+img.article-image-first {
+  width: 840px;
+  height: auto;
+}
+
 .portfolio-max-width {
   max-width: 900px;
   margin: auto;

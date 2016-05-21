@@ -3,7 +3,7 @@
 {% load django_markdown %}
 {% load humanize %}
 {% block title %}
-<title>{{ post.title }}</title>
+<title>"{{ post.title }}"</title>
 {% endblock %}
 {% block fbtags %}
 <!-- Fb Tags-->
@@ -15,9 +15,9 @@
   {% if post.photo %}
   <meta property="og:image"content="http://www.hassanabid.com/{{ post.photo.url }}" />
   {% else %}
-  <meta property="og:image"content="{% static 'resume/images/hassan_gds.jpg' %}" />
+  <meta property="og:image"content="http://www.hassanabid.com/static/resume/images/hassan_gds.jpg" />
   {% endif %}
-  <meta property="og:url" content="http://www.hassanabid.com" />
+  <meta property="og:url" content="http://www.hassanabid.com/blog/{{ post.slug }}" />
 {% endblock %}
 {% block fbjs %}
 <script>
