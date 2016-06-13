@@ -12,7 +12,7 @@ cycling with his smart watch to record all his outdoor activities.">
   <meta property="og:type" content="article" />
   <meta property="og:locale" content="en_US" />
   <meta property="og:title" content="Hassan Abid" />
-  <meta property="fb:app_id" content="722253317920977" /> 
+  <meta property="fb:app_id" content="722253317920977" />
   <meta property="article:author" content="https://www.facebook.com/hassanabidpk89" />
   <meta property="og:description" content="Hassan is a passionate Software Engineer with several years of experience in
   Android,iOS and Web development. He is currently based in Seoul.When he’s not coding, he can be found hiking, running or
@@ -36,7 +36,7 @@ is-active
             <p>
                 If you would like me to review your code, or need help with anything? Don't hestitate to shoot me a message!
             </p>
-            <form action="{% url 'resume:contact' %}" method="post" class="">
+            <form method="post" id="contact-form" class="">
                 {% csrf_token %}
                 <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
                     <input class="mdl-textfield__input" pattern="[A-Z,a-z, ]*" type="text" id="full_name" name="full_name">
@@ -60,4 +60,8 @@ is-active
         </div>
     </div>
 </div>
+{% endblock %}
+{% block contactjs %}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>
+<script src="{% static 'resume/js/script.js' %}"></script>
 {% endblock %}
