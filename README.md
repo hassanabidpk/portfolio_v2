@@ -1,7 +1,6 @@
 # Hassan Abid website (hassanabid.com)
 
 [![Build Status](https://travis-ci.org/hassanabidpk/portfolio_v2.svg?branch=master)](https://travis-ci.org/hassanabidpk/portfolio_v2)
----
 
 This website [hassanabid.com](http://www.hassanabid.com), built on [Django](https://www.djangoproject.com/) and [Material Design Lite](http://www.getmdl.io/).
 
