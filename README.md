@@ -2,6 +2,8 @@
 
 [![Build Status](https://travis-ci.org/hassanabidpk/portfolio_v2.svg?branch=master)](https://travis-ci.org/hassanabidpk/portfolio_v2)
 
+[![Coverage Status](https://coveralls.io/repos/github/hassanabidpk/portfolio_v2/badge.svg?branch=master)](https://coveralls.io/github/hassanabidpk/portfolio_v2?branch=master)
+
 This website [hassanabid.com](http://www.hassanabid.com), built on [Django](https://www.djangoproject.com/) and [Material Design Lite](http://www.getmdl.io/).
 
 > More specific details for how to fork and run this website is coming soon
